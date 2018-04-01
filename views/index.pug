@@ -1,42 +1,20 @@
 extends layout
-
-block socials  
-  ul
-    li 
-      a(href="https://github.com/FabienGreard" alt="github") 
-        img(src="icons/github.svg")
-    li 
-      a(href="http://codepen.io/FabienGreard/" alt="codepen")
-        img(src="icons/codepen.svg")
-    li 
-      a(href="https://stackoverflow.com/users/6668441/fabien-greard" alt="stackoverflow") 
-      img(src="icons/stack-overflow.svg")
-    li 
-      a(href="https://www.linkedin.com/in/fabiengreard/" alt="linkedin") 
-      img(src="icons/linkedin.svg")
-        
+      
 block content
   if status
-    h1=`Sorry but this is private !`
+    h1=status
   unless status
-    img(src="images/picture.jpg" alt="picture")
     h1=`Hello !`
-    p=`Please, start to explore my personal website !`
+    p=`Grettings from All-in-one !`
     
-block apps  
-  ul
-  each link in apps
-    if link.name
-      li 
-        a(href=`apps${link.url}`)=link.name
+block routes  
+  if routes
+    ul
+      each link in routes
+        if link.name
+          li 
+            a(href=`${link.url}`)=link.name
         
-block essays  
-  ul
-  each link in essays
-    if link.name
-      li 
-        a(href=`essays${link.url}`)=link.name
-
 
 
 
