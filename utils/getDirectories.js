@@ -2,11 +2,14 @@ const fs = require('fs'),
   path = require('path');
 
 const isDirectory = source => fs.lstatSync(source).isDirectory();
+const isExist = source => fs.existsSync(source);
 module.exports = getDirectories = source => {
-  const directories = fs
-    .readdirSync(source)
-    .map(name => path.join(source, name))
-    .filter(isDirectory);
+  const directories = isExist(source)
+    ? fs
+        .readdirSync(source)
+        .map(name => path.join(source, name))
+        .filter(isDirectory)
+    : [];
 
   return {
     [Symbol.iterator]: function() {
