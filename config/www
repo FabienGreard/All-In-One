@@ -27,8 +27,8 @@ if (process.env.NODE_ENV === 'development') {
   console.log(`Server running under ${process.env.NODE_ENV}`);
 } else {
   const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/fabiengreard.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/fabiengreard.com/cert.pem')
+    key: fs.readFileSync(config.keys),
+    cert: fs.readFileSync(config.cert)
   };
 
   //https over http

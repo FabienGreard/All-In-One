@@ -1,5 +1,5 @@
 # Dependency directory
 node_modules
 package-lock.json
-config/.credential.js
+config/.credentials.js
 coverage
