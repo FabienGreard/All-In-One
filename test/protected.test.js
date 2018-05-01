@@ -7,7 +7,6 @@ describe('protected', () => {
   const directories = getDirectories('protected');
   test('renders protected url without credentials', done => {
     for (directory of directories) {
-      console.log(directory);
       request(app)
         .get(`${directory.name}`)
         .expect(401)
