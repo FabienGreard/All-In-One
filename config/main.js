@@ -17,6 +17,12 @@ module.exports = {
     process.env.NODE_ENV !== 'development'
       ? require('./.credential').cert
       : 'admin',
+  host:
+    process.env.NODE_ENV !== 'development'
+      ? require('./.credential').host
+      : 'localhost',
+  //you may want to disable https
+  protocole: process.env.NODE_ENV !== 'development' ? 'https' : 'http',
   // Setting port for server
   port: process.env.NODE_ENV !== 'development' ? 80 : 8080
 };
