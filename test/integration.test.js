@@ -1,5 +1,4 @@
-const getDirectories = require('../utils/getDirectories'),
-  request = require('supertest'),
+const request = require('supertest'),
   app = require('../server.js');
 
 describe('integration', () => {
