@@ -13,13 +13,20 @@ app.use(logger('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// protected folder
+// Protected folder
 for (directory of getDirectories('protected')) {
-  console.log();
   app.use(`/${directory.name}`, [
     basicAuth,
     express.static(path.join(__dirname, `protected/${directory.name}`))
   ]);
+}
+
+// Routes folder
+for (directory of getDirectories('routes')) {
+  app.use(
+    `/${directory.name}`,
+    express.static(path.join(__dirname, `routes/${directory.name}`))
+  );
 }
 
 // Public folder
@@ -27,8 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res, next) => {
   res.render('index', {
-    essays: [...Object.values(getDirectories('public/essays').values)],
-    apps: [...Object.values(getDirectories('public/apps').values)]
+    routes: [...Object.values(getDirectories('routes').values)]
   });
 });
 
