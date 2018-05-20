@@ -6,20 +6,32 @@
 
 const app = require('../server'),
   config = require('../config/main'),
-  http = require('http');
+  http = require('http'),
+  https = require('https');
 
 /**
  * Get port from environment and store in Express.
  */
 
 const port = normalizePort(config.port);
+if (process.env.NODE_ENV !== 'development') {
+  port = normalizePort(443);
+}
 app.set('port', port);
+
+const server = http.createServer(app);
 
 if (process.env.NODE_ENV === 'development') {
   console.log(`Server running under ${process.env.NODE_ENV}`);
-}
+} else {
+  const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/fabiengreard.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/fabiengreard.com/cert.pem')
+  };
 
-const server = http.createServer(app);
+  //https over http
+  server = https.createServer(options, app);
+}
 
 /**
  * Listen on provided port, on all network interfaces.

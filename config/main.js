@@ -9,5 +9,5 @@ module.exports = {
       ? require('./.credential').password
       : 'admin',
   // Setting port for server
-  port: process.env.PORT || 8080
+  port: process.env.NODE_ENV !== 'development' ? 80 : 8080
 };
