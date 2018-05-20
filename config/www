@@ -7,6 +7,7 @@
 const app = require('../server'),
   config = require('../config/main'),
   http = require('http'),
+  fs = require('fs'),
   https = require('https');
 
 /**
