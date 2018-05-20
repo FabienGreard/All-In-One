@@ -13,4 +13,3 @@ npm start
 
 Then open [http://localhost:3000/](http://localhost:3000/) to start using All-in-One
 
-When you’re ready to deploy to production, create a minified bundle with `npm run build`
