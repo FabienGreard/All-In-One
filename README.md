@@ -1,4 +1,4 @@
-# All-in-One [![Build Status](https://travis-ci.org/FabienGreard/All-in-One.svg?branch=master)](https://travis-ci.org/FabienGreard/All-in-One)[![dependencies Status](https://david-dm.org/FabienGreard/All-in-One/status.svg)](https://david-dm.org/FabienGreard/All-in-One)[![devDependencies Status](https://david-dm.org/FabienGreard/All-in-One/dev-status.svg)](https://david-dm.org/FabienGreard/All-in-One?type=dev)
+# All-in-One [![Build Status](https://travis-ci.org/FabienGreard/All-In-One.svg?branch=master)](https://travis-ci.org/FabienGreard/All-in-One)[![dependencies Status](https://david-dm.org/FabienGreard/All-in-One/status.svg)](https://david-dm.org/FabienGreard/All-in-One)[![devDependencies Status](https://david-dm.org/FabienGreard/All-in-One/dev-status.svg)](https://david-dm.org/FabienGreard/All-in-One?type=dev)
 
 All-in-One is using Basic authorization to secure directory to serve content across the universe ! (:
 
