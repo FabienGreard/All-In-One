@@ -13,10 +13,11 @@ const app = require('../server'),
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(config.port);
-if (process.env.NODE_ENV !== 'development') {
-  port = normalizePort(443);
-}
+const port =
+  process.env.NODE_ENV !== 'development'
+    ? normalizePort(443)
+    : normalizePort(config.port);
+
 app.set('port', port);
 
 const server = http.createServer(app);
