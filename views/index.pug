@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1=`Welcome Stranger to this ${title},`
+  h2 Still there ?
+  br
+  if status
+    h1=status
+  br
+  p  Well, since you're not leaving, you're probably lost let me help you..
+  p I've got a list of links, i guess i could gave it to you ? 
+  p You may start your journey ! 
+  br
+  ul
+  each link in links
+    if link.name
+      li 
+        a(href=link.url)=link.name
+  else
+    li There are no links, oops ?
+  
