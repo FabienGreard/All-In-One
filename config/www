@@ -21,10 +21,10 @@ const port =
 
 app.set('port', port);
 
+let server = http.createServer(app);
+
 if (process.env.NODE_ENV === 'development') {
   console.log(`Server running under ${process.env.NODE_ENV}`);
-
-  const server = http.createServer(app);
 } else {
   const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/fabiengreard.com/privkey.pem'),
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'development') {
   };
 
   //https over http
-  const server = https.createServer(options, app);
+  server = https.createServer(options, app);
 }
 
 /**
