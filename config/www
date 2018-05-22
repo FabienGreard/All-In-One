@@ -15,9 +15,9 @@ const app = require('../server'),
  */
 
 const port =
-  process.env.NODE_ENV !== 'development'
-    ? normalizePort(443)
-    : normalizePort(config.port);
+  process.env.NODE_ENV === 'development'
+    ? normalizePort(config.port)
+    : normalizePort(443);
 
 app.set('port', port);
 
