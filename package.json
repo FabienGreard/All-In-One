@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node ./config/www",
     "dev": "cross-env NODE_ENV=development nodemon ./config/www",
-    "test": "cross-env NODE_ENV=development jest",
-    "coverage": "cross-env NODE_ENV=development jest --coverage --watchAll"
+    "test":
+      "cross-env NODE_ENV=development jest --config ./config/jest.config.js",
+    "coverage":
+      "cross-env NODE_ENV=development jest --coverage --watchAll --config ./config/jest.config.js"
   },
   "author": "FabienGreard",
   "license": "MIT",
@@ -21,11 +23,5 @@
     "jest": "23.1.0",
     "nodemon": "^1.17.4",
     "supertest": "^3.1.0"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "utils/*.js",
-      "server.js"
-    ]
   }
 }
