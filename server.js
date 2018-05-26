@@ -26,11 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res, next) => {
   res.render('index', {
-    title: 'HS - Huge Server',
-    links: [
-      ...Object.values(getDirectories('public').values),
-      ...Object.values(getDirectories('protected').values)
-    ]
+    essays: [...Object.values(getDirectories('public/essays').values)],
+    apps: [...Object.values(getDirectories('public/apps').values)]
   });
 });
 

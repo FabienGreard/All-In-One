@@ -1,21 +1,45 @@
 extends layout
 
-block content
-  h1=`Welcome Stranger to this ${title},`
-  h2 Still there ?
-  br
-  if status
-    h1=status
-  br
-  p  Well, since you're not leaving, you're probably lost let me help you..
-  p I've got a list of links, i guess i could gave it to you ? 
-  p You may start your journey ! 
-  br
+block socials  
   ul
-  each link in links
+    li 
+      a(href="https://github.com/FabienGreard" alt="github") 
+        img(src="icons/github.svg")
+    li 
+      a(href="http://codepen.io/FabienGreard/" alt="codepen")
+        img(src="icons/codepen.svg")
+    li 
+      a(href="https://stackoverflow.com/users/6668441/fabien-greard" alt="stackoverflow") 
+      img(src="icons/stack-overflow.svg")
+    li 
+      a(href="https://www.linkedin.com/in/fabiengreard/" alt="linkedin") 
+      img(src="icons/linkedin.svg")
+        
+block content
+  if status
+    h1=`Sorry but this is still private !`
+  unless status
+    img(src="images/picture.jpg" alt="picture")
+    h1=`Hello !`
+    p=`Please, start to explore my personal website !`
+    
+block apps  
+  ul
+  each link in apps
     if link.name
       li 
-        a(href=link.url)=link.name
-  else
-    li There are no links, oops ?
+        a(href=`apps${link.url}`)=link.name
+        
+block essays  
+  ul
+  each link in essays
+    if link.name
+      li 
+        a(href=`essays${link.url}`)=link.name
+
+
+
+
+          
+
   

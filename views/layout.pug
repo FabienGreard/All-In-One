@@ -1,15 +1,27 @@
 doctype html
-html
+html(lang="en")
   head
-    title= title
-    link(rel='stylesheet', href='/style.css')
     meta(charset="UTF-8")
     meta(name="description" content="fabienGreard personal website")
     meta(name="keywords" content="Javascript,Developer,Front-end,React,Nodejs")
     meta(name="author" content="Fabien Greard")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="manifest" href="/manifest.json")
+    link(rel="shortcut icon" href="/images/favicon.ico")
+    link(rel="stylesheet", href="/style.css")
+    title=`Fabien Gréard`
   body
-    block content
+    noscript=`You need to enable JavaScript to run this app.`
+    .socials
+      block socials
+    .content
+      block content
+    .essays
+      block essays
+    .apps
+      block apps
+  <!-- Entry point -->
+  script(src="app.js")
   <!-- Global site tag (gtag.js) - Google Analytics -->
   script(async src="https://www.googletagmanager.com/gtag/js?id=UA-112035252-1")
   script.
