@@ -16,11 +16,8 @@ module.exports = basicAuth = (req, res, next) => {
   ) {
     res.set('WWW-Authenticate', `Basic realm=${req.baseUrl}`);
     res.status(401).render('index', {
-      title: 'HS - Huge Server',
-      links: [
-        ...Object.values(getDirectories('public').values),
-        ...Object.values(getDirectories('protected').values)
-      ],
+      essays: [...Object.values(getDirectories('public/essays').values)],
+      apps: [...Object.values(getDirectories('public/apps').values)],
       status: 'Unauthorized !'
     });
     return;

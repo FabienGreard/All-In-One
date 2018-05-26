@@ -15,6 +15,7 @@ app.set('view engine', 'pug');
 
 // protected folder
 for (directory of getDirectories('protected')) {
+  console.log();
   app.use(`/${directory.name}`, [
     basicAuth,
     express.static(path.join(__dirname, `protected/${directory.name}`))
@@ -45,7 +46,7 @@ app.use((err, req, res, next) => {
   res.locals.error = process.env.NODE_ENV === 'development' && err;
 
   // render the error page
-  res.status(err.status);
+  res.status(err.status | 500);
   res.render('error');
 });
 
