@@ -3,7 +3,7 @@ const getDirectories = require('../utils/getDirectories'),
   app = require('../server.js');
 
 describe('Routes', () => {
-  test('Should render routes url', done => {
+  test('Should render routes urls', done => {
     const directories = getDirectories('routes');
     for (directory of directories) {
       request(app)

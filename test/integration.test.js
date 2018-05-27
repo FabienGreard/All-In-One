@@ -3,7 +3,7 @@ const getDirectories = require('../utils/getDirectories'),
   app = require('../server.js');
 
 describe('integration', () => {
-  test('renders index', done => {
+  test('Should render index', done => {
     request(app)
       .get(`/`)
       .expect(200)
@@ -12,7 +12,7 @@ describe('integration', () => {
         done();
       });
   });
-  test('404', done => {
+  test('Should throw a 404', done => {
     request(app)
       .get(`/not-found`)
       .expect(404)
