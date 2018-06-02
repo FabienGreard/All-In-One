@@ -2,7 +2,7 @@ const getDirectories = require('../utils/getDirectories'),
   request = require('supertest'),
   app = require('../server.js');
 
-it('renders public url', done => {
+test('renders public url', done => {
   const directories = getDirectories('public');
   for (directory of directories) {
     request(app)

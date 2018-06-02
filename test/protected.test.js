@@ -5,7 +5,7 @@ const getDirectories = require('../utils/getDirectories'),
 
 describe('protected', () => {
   const directories = getDirectories('protected');
-  it('renders protected url without credentials', done => {
+  test('renders protected url without credentials', done => {
     for (directory of directories) {
       console.log(directory);
       request(app)
@@ -17,7 +17,7 @@ describe('protected', () => {
         });
     }
   });
-  it('renders protected url with credentials', done => {
+  test('renders protected url with credentials', done => {
     for (directory of directories) {
       request(app)
         .get(`${directory.url}`)
