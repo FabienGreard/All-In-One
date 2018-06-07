@@ -8,7 +8,7 @@ describe('protected', () => {
   test('renders protected url without credentials', done => {
     for (directory of directories) {
       request(app)
-        .get(`${directory.name}`)
+        .get(`${directory.url}`)
         .expect(401)
         .end(err => {
           if (err) throw done(err);
