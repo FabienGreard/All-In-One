@@ -4,7 +4,7 @@ All-in-One is a server boilerplate, **what it does**:
 
 - Https / http config
 - Use Basic authorization
-- SEO management
+- SEO features(sitemap.xml, robots.txt)
 - Handle server error
 - Easy to serve file
 - Ready to use
