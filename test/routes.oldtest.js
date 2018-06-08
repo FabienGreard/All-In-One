@@ -8,14 +8,13 @@ describe('Routes', () => {
     for (directory of directories) {
       request(app)
         .get(`${directory.url}`)
-        .expect(301)
+        .expect(200)
         .end(err => {
           if (err) throw done(err);
           done();
         });
     }
   });
-
   test('Should not match', () => {
     const directories = getDirectories('this-should-never-match')[
       Symbol.iterator

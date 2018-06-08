@@ -1,9 +1,8 @@
-const express = require('express'),
-  app = express(),
+const app = require('express')(),
   path = require('path'),
   logger = require('morgan'),
   config = require('./config/main'),
-  { getDirectories, seo, errorHandler, basicAuth } = require('./utils');
+  { getDirectories, seo, errorHandler, servFile } = require('./utils');
 
 // Generate robots.txt disallow protected routes
 seo.genRobots('protected', 'robots.txt');
@@ -18,51 +17,30 @@ app.set('views', [
   path.join(__dirname, 'routes'),
   path.join(__dirname, 'protected')
 ]);
-
 app.set('view engine', 'pug');
 
-// Protected folder
-for (const directory of getDirectories('protected')) {
-  app.use(`/${directory.name}`, [
-    basicAuth,
-    express.static(path.join(__dirname, `protected/${directory.name}`))
-  ]);
-}
+// Private folder
+servFile(app, getDirectories('protected'), {
+  exts: ['md', 'html', 'pug'],
+  isProtected: true,
+  baseDir: '../protected'
+});
 
 // Routes folder
-for (const directory of getDirectories('routes')) {
-  app.use(
-    `/${directory.name}`,
-    express.static(path.join(__dirname, `routes/${directory.name}`))
-  );
-}
-
-// Using pug
-for (const directory of [
-  ...getDirectories('routes'),
-  ...getDirectories('protected')
-]) {
-  app.get(`/${directory.name}`, (req, res, next) => {
-    res.render(`${directory.name}/index`);
-  });
-}
-
-// Using markdown
-for (const directory of [
-  ...getDirectories('routes'),
-  ...getDirectories('protected')
-]) {
-  app.get(`/${directory.name}`, (req, res, next) => {
-    res.render(`${directory.name}/index`);
-  });
-}
+servFile(app, getDirectories('routes'), {
+  exts: ['md', 'html', 'pug'],
+  baseDir: '../routes'
+});
 
 // Public folder
-app.use(express.static(path.join(__dirname, 'public')));
+servFile(app, ['public'], { baseDir: '../' });
 
 app.get('/', (req, res, next) => {
   res.render('index', {
-    routes: [...Object.values(getDirectories('routes').values)],
+    routes: [
+      ...Object.values(getDirectories('protected').values),
+      ...Object.values(getDirectories('routes').values)
+    ],
     googleAnalyticsId: config.googleAnalyticsId
   });
 });
