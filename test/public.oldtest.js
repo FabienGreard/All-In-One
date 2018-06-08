@@ -5,7 +5,7 @@ const getDirectories = require('../utils/getDirectories'),
 describe('Public', () => {
   test('Should render public urls', done => {
     const directories = getDirectories('public');
-    for (directory of directories) {
+    for (const directory of directories) {
       request(app)
         .get(`${directory.url}`)
         .expect(200)

@@ -5,7 +5,7 @@ const getDirectories = require('../utils/getDirectories'),
 describe('Routes', () => {
   test('Should render routes urls', done => {
     const directories = getDirectories('routes');
-    for (directory of directories) {
+    for (const directory of directories) {
       request(app)
         .get(`${directory.url}`)
         .expect(200)
