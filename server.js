@@ -37,7 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res, next) => {
   res.render('index', {
-    routes: [...Object.values(getDirectories('routes').values)]
+    routes: [...Object.values(getDirectories('routes').values)],
+    googleAnalyticsId: config.googleAnalyticsId
   });
 });
 

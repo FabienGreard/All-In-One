@@ -15,10 +15,9 @@ module.exports = basicAuth = (req, res, next) => {
     password !== config.password
   ) {
     res.set('WWW-Authenticate', `Basic realm=${req.baseUrl}`);
-    res.status(401).render('index', {
-      status: '401 Unauthorized !'
-    });
-    return;
+    let err = new Error('Unauthorized');
+    err.status = 401;
+    next(err);
   }
 
   next();

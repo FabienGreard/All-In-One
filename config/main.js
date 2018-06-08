@@ -2,25 +2,26 @@ module.exports = {
   // credentials information
   username:
     process.env.NODE_ENV !== 'development'
-      ? require('./.credential').username
+      ? require('./.credentials').username
       : 'admin',
   password:
     process.env.NODE_ENV !== 'development'
-      ? require('./.credential').password
+      ? require('./.credentials').password
       : 'admin',
   //https keys and cert
   keys:
     process.env.NODE_ENV !== 'development'
-      ? require('./.credential').keys
+      ? require('./.credentials').keys
       : 'admin',
   cert:
     process.env.NODE_ENV !== 'development'
-      ? require('./.credential').cert
+      ? require('./.credentials').cert
       : 'admin',
   host:
     process.env.NODE_ENV !== 'development'
-      ? require('./.credential').host
+      ? require('./.credentials').host
       : 'localhost',
+  googleAnalyticsId: require('./.credentials').googleAnalyticsId,
   //you may want to disable https
   protocole: process.env.NODE_ENV !== 'development' ? 'https' : 'http',
   // Setting port for server

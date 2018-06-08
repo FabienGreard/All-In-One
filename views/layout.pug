@@ -16,13 +16,13 @@ html(lang="en")
       block content
     .routes
       block routes
-  <!-- Entry point -->
-  script(src="app.js")
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  script(async src="https://www.googletagmanager.com/gtag/js?id=UA-112035252-1")
-  script.
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    gtag('config', 'UA-112035252-1');
+    <!-- Entry point -->
+    script(src="app.js")
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    script(async src=`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`)
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', '#{googleAnalyticsId}');

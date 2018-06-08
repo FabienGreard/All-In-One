@@ -1,19 +1,15 @@
 extends layout
       
 block content
-  if status
-    h1=status
-  unless status
-    h1=`Hello !`
-    p=`Grettings from All-in-one !`
+  h1=`Hello !`
+  p=`Grettings from All-in-one !`
     
 block routes  
-  if routes
-    ul
-      each link in routes
-        if link.name
-          li 
-            a(href=`${link.url}`)=link.name
+  ul
+    each link in routes
+      if link.name
+        li 
+          a(href=`${link.url}`)=link.name
         
 
 
