@@ -1,8 +1,12 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "BasicAuth-server",
+  "description": "BasicAuth-Boilerplate-Server",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FabienGreard/All-In-One.git"
+  },
   "scripts": {
     "start": "node ./config/www",
     "dev": "cross-env NODE_ENV=development nodemon ./config/www",
@@ -23,5 +27,15 @@
     "jest": "23.1.0",
     "nodemon": "^1.17.4",
     "supertest": "^3.1.0"
-  }
+  },
+  "keywords": [
+    "Server",
+    "BasicAuth",
+    "Boilerplate",
+    "nodejs",
+    "javascript",
+    "https",
+    "http",
+    "routes"
+  ]
 }

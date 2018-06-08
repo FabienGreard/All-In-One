@@ -1,10 +1,13 @@
 const express = require('express'),
+  app = express(),
   path = require('path'),
   logger = require('morgan'),
-  app = express(),
   config = require('./config/main'),
-  getDirectories = require('./utils/getDirectories'),
-  basicAuth = require('./utils/basicAuth');
+  { getDirectories, seo, errorHandler, basicAuth } = require('./utils');
+
+// Generate robots.txt disallow protected routes
+seo.genRobots('protected', 'robots.txt');
+seo.genRobots('routes', 'sitemap.xml');
 
 // logger init
 app.use(logger('dev'));
@@ -46,14 +49,6 @@ app.use((req, res, next) => {
 });
 
 // Error handler
-app.use((err, req, res, next) => {
-  // Set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = process.env.NODE_ENV === 'development' && err;
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use(errorHandler);
 
 module.exports = app;
