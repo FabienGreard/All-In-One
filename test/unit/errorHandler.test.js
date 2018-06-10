@@ -1,4 +1,4 @@
-const errorHandler = require('../utils/errorHandler');
+const errorHandler = require('../../utils/errorHandler');
 
 describe('errorHandler', () => {
   const req = {

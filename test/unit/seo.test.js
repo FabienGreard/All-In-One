@@ -1,4 +1,4 @@
-const seo = require('../utils/seo');
+const seo = require('../../utils/seo');
 
 describe('SEO', () => {
   test('Should create a robots.txt', async () => {
