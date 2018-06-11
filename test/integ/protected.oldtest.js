@@ -1,7 +1,7 @@
 const getDirectories = require('../utils/getDirectories'),
   request = require('supertest'),
-  config = require('../config/main'),
-  app = require('../server.js');
+  config = require('../../config/main'),
+  app = require('../../server.js');
 
 describe('protected', () => {
   const directories = getDirectories('protected');

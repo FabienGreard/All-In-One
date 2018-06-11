@@ -1,6 +1,6 @@
 const getDirectories = require('../utils/getDirectories'),
   request = require('supertest'),
-  app = require('../server.js');
+  app = require('../../server.js');
 
 describe('Public', () => {
   test('Should render public urls', done => {

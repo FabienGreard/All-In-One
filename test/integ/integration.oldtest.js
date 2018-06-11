@@ -1,5 +1,5 @@
 const request = require('supertest'),
-  app = require('../server.js');
+  app = require('../../server.js');
 
 describe('integration', () => {
   test('Should render index', done => {
