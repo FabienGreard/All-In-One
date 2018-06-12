@@ -4,7 +4,7 @@ const getDirectories = require('./getDirectories'),
 module.exports = basicAuth = (req, res, next) => {
   // parse login and password from headers
   const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
-  let [login, password] = new Buffer.from(b64auth, 'base64')
+  const [login, password] = new Buffer.from(b64auth, 'base64')
     .toString()
     .split(':');
 
