@@ -1,10 +1,11 @@
 const marked = require('marked'),
   fs = require('fs');
 
-module.exports = markdown = (...args) => {
-  const [req, res, next, dir = ''] = args;
-  fs.readFile(dir + '/' + req.url + '/index.md', 'utf8', (err, data) => {
-    if (err) next(err);
-    res.send(marked(data));
+module.exports = markdown = (dir, filename) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(dir + '/' + `${filename}`, 'utf8', (err, data) => {
+      if (err) reject(err);
+      else resolve(marked(data).trim());
+    });
   });
 };

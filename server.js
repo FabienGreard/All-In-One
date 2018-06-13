@@ -23,17 +23,17 @@ app.set('view engine', 'pug');
 servFile(app, getDirectories('protected'), {
   exts: ['md', 'html', 'pug'],
   isProtected: true,
-  baseDir: '../protected'
+  baseDir: '../protected/'
 });
 
 // Routes folder
 servFile(app, getDirectories('routes'), {
   exts: ['md', 'html', 'pug'],
-  baseDir: '../routes'
+  baseDir: '../routes/'
 });
 
 // Public folder
-servFile(app, ['public'], { baseDir: '../' });
+servFile(app, [{ name: 'public' }]);
 
 app.get('/', (req, res, next) => {
   res.render('index', {

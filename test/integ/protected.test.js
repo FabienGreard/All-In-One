@@ -1,4 +1,4 @@
-const getDirectories = require('../utils/getDirectories'),
+const getDirectories = require('../../utils/getDirectories'),
   request = require('supertest'),
   config = require('../../config/main'),
   app = require('../../server.js');
@@ -27,7 +27,7 @@ describe('protected', () => {
               'base64'
             )
         })
-        .expect(200)
+        .expect(301)
         .end(err => {
           if (err) throw done(err);
           done();

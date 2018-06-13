@@ -1,9 +1,9 @@
-const basicAuth = require('../../utils/basicAuth');
+const basicAuth = require('../../utils/basicAuth'),
+  config = require('../../config/main');
 
 describe('basicAuth', () => {
   let req, res, next;
   beforeEach(() => {
-    //define new request, response
     req = {
       headers: {},
       baseUrl: 'http://localhost/'
@@ -28,7 +28,14 @@ describe('basicAuth', () => {
   });
 
   test('Should return an empty object', () => {
-    req.headers = { authorization: 'Basic YWRtaW46YWRtaW4=' };
+    req.headers = {
+      authorization:
+        'Basic ' +
+        new Buffer.from(config.username + ':' + config.password).toString(
+          'base64'
+        )
+    };
+
     basicAuth(req, res, next);
 
     expect(res.locals).toEqual({});
