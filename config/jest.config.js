@@ -5,7 +5,7 @@ module.exports = {
   bail: true, // enable to stop test when an error occur,
   testMatch: ['**/test/**/*.test.js?(x)'],
   testPathIgnorePatterns: ['node_modules/'],
-  collectCoverageFrom: ['utils/*.js', 'server.js'],
+  collectCoverageFrom: ['!**/**/index.js', 'utils/*.js', 'server.js'],
   coverageThreshold: {
     // coverage strategy
     global: {
