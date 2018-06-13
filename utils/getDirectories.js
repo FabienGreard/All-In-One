@@ -12,22 +12,13 @@ module.exports = getDirectories = source => {
     : [];
 
   return {
-    [Symbol.iterator]: function() {
+    [Symbol.iterator]: function*() {
       let i = 0;
       const size = Object.keys(this.values).length;
-      const values = this.values;
-      return {
-        next: function() {
-          if (i < size) {
-            i++;
-            return {
-              value: values[i - 1],
-              done: false
-            };
-          }
-          return { done: true };
-        }
-      };
+      if (i < size) {
+        i++;
+        yield this.values[i - 1];
+      }
     },
     values: {
       ...directories.map(name => {
