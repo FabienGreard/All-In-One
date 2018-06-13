@@ -15,10 +15,4 @@ describe('Routes', () => {
         });
     }
   });
-  test('Should not match', () => {
-    const directories = getDirectories('this-should-never-match')[
-      Symbol.iterator
-    ]();
-    expect(directories.next()).toEqual({ done: true });
-  });
 });
