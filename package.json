@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "All-In-One",
   "version": "1.0.0",
   "description": "BasicAuth-Boilerplate-Server",
   "main": "server.js",
@@ -10,8 +10,10 @@
   "scripts": {
     "start": "node ./config/www",
     "dev": "cross-env NODE_ENV=development nodemon ./config/www",
-    "test": "cross-env NODE_ENV=development jest --config ./config/jest.config.js",
-    "coverage": "cross-env NODE_ENV=development jest --coverage --watchAll --config ./config/jest.config.js"
+    "test":
+      "cross-env NODE_ENV=development jest --config ./config/jest.config.js",
+    "coverage":
+      "cross-env NODE_ENV=development jest --coverage --watchAll --config ./config/jest.config.js"
   },
   "author": "FabienGreard",
   "license": "MIT",
@@ -36,6 +38,8 @@
     "javascript",
     "https",
     "http",
-    "routes"
+    "routes",
+    "blog",
+    "logs"
   ]
 }
