@@ -1,15 +1,12 @@
 const app = require('express')(),
   path = require('path'),
-  logger = require('morgan'),
   config = require('./config/main'),
-  { getDirectories, seo, errorHandler, servFile } = require('./utils');
+  morgan = require('morgan'),
+  { getDirectories, seo, errorHandler, servFile, winston } = require('./utils');
 
 // Generate robots.txt disallow protected routes
 seo.genRobots('protected', 'robots.txt');
 seo.genRobots('routes', 'sitemap.xml');
-
-// logger init
-app.use(logger('dev'));
 
 // View engine setup
 app.set('views', [
@@ -19,16 +16,19 @@ app.set('views', [
 ]);
 app.set('view engine', 'pug');
 
+//logger
+app.use(morgan(config.log, { stream: winston.stream }));
+
 // Private folder
 servFile(app, getDirectories('protected'), {
-  exts: ['md', 'html', 'pug'],
+  exts: ['html', 'md', 'pug'],
   isProtected: true,
   baseDir: '../protected/'
 });
 
 // Routes folder
 servFile(app, getDirectories('routes'), {
-  exts: ['md', 'html', 'pug'],
+  exts: ['html', 'md', 'pug'],
   baseDir: '../routes/'
 });
 

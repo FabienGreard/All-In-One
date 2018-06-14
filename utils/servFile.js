@@ -10,6 +10,7 @@ module.exports = servFile = (app, directories, options = {}) => {
   for (const directory of directories) {
     const useUrl =
       `${directory.url}` !== 'undefined' ? `${directory.url}` : '/';
+
     if (isProtected) {
       //protected directory
       app.use(`${useUrl}`, [
@@ -23,6 +24,7 @@ module.exports = servFile = (app, directories, options = {}) => {
         express.static(path.join(__dirname, `${_baseDir}${directory.name}`))
       );
     }
+
     if (exts) {
       for (const ext of exts) {
         //check if file extension matched

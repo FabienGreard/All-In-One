@@ -2,14 +2,14 @@
 
 All-in-One is a server boilerplate, **what it does**:
 
-- Https / http config
-- Use Basic authorization
-- SEO features(sitemap.xml, robots.txt)
-- Handle server error
-- Easy to serve file (html, pug or markdown !)
-- Ready to use
+- Https / http config :globe_with_meridians:
+- Use Basic authorization :lock:
+- SEO features(sitemap.xml, robots.txt) :eyeglasses:
+- Handle server error (with Logs !) :memo:
+- Easy to serve file (html, pug or markdown !) :beers:
+- Ready to use :fire:
 
-If something doesn’t work, please [file an issue](https://github.com/FabienGreard/All-in-One/issues/new).
+If something doesn’t work, please [file an issue](https://github.com/FabienGreard/All-in-One/issues/new) :bug:.
 
 ## Quick Start
 

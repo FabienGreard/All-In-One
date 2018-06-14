@@ -25,6 +25,7 @@ module.exports = {
     process.env.NODE_ENV !== 'development'
       ? require('./.credentials').googleAnalyticsId
       : '',
+  log: process.env.NODE_ENV !== 'development' ? 'combined' : 'dev',
   //you may want to disable https
   protocole: process.env.NODE_ENV !== 'development' ? 'https' : 'http',
   // Setting port for server

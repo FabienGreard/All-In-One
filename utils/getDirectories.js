@@ -15,9 +15,8 @@ module.exports = getDirectories = source => {
     [Symbol.iterator]: function*() {
       let i = 0;
       const size = Object.keys(this.values).length;
-      if (i < size) {
-        i++;
-        yield this.values[i - 1];
+      while (i < size) {
+        yield this.values[i++];
       }
     },
     values: {

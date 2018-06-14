@@ -8,4 +8,12 @@
 <loc>http://localhost/html</loc>
 <priority>0.80</priority>
 </url>
-</urlset> 
+<url>
+<loc>http://localhost/md</loc>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>http://localhost/pug</loc>
+<priority>0.80</priority>
+</url>
+</urlset>

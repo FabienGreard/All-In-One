@@ -5,6 +5,7 @@ const getDirectories = require('./getDirectories'),
   basicAuth = require('./basicAuth'),
   servFile = require('./servFile'),
   checkFileExt = require('./checkFileExt');
+winston = require('./winston');
 
 module.exports = {
   getDirectories,
@@ -13,5 +14,6 @@ module.exports = {
   basicAuth,
   markdown,
   checkFileExt,
-  servFile
+  servFile,
+  winston
 };

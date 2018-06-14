@@ -20,7 +20,8 @@
     "express": "^4.16.3",
     "marked": "^0.4.0",
     "morgan": "^1.9.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "jest": "23.1.0",
