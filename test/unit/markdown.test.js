@@ -3,7 +3,7 @@ const markdown = require('../../utils/markdown'),
   path = require('path');
 
 describe('markdown', () => {
-  const writeFile = (file, filename) => {
+  const writeFile = (filename, file) => {
     return new Promise((resolve, reject) => {
       fs.writeFile(path.join(__dirname, `${filename}`), file, err => {
         if (err) reject(err);
@@ -16,7 +16,7 @@ describe('markdown', () => {
     return new Promise((resolve, reject) => {
       fs.unlink(path.join(__dirname, `${filename}`), err => {
         if (err) reject(err);
-        else resolve(`${filename} has been saved`);
+        else resolve(`${filename} has been deleted`);
       });
     });
   };
@@ -37,7 +37,7 @@ describe('markdown', () => {
   });
 
   test('Should render markdown', async () => {
-    await writeFile('***markdown***', 'index.md');
+    await writeFile('index.md', '***markdown***');
     expect(await markdown(__dirname, 'index.md')).toBe(
       '<p><strong><em>markdown</em></strong></p>'
     );
