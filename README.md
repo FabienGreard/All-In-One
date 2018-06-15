@@ -6,7 +6,7 @@ All-in-One is a server boilerplate, **what it does**:
 - Use Basic authorization
 - SEO features(sitemap.xml, robots.txt)
 - Handle server error
-- Easy to serve file
+- Easy to serve file (html, pug or markdown !)
 - Ready to use
 
 If something doesn’t work, please [file an issue](https://github.com/FabienGreard/All-in-One/issues/new).

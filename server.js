@@ -13,11 +13,16 @@ seo.genRobots('routes', 'sitemap.xml');
 app.use(logger('dev'));
 
 // View engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [
+  path.join(__dirname, 'views'),
+  path.join(__dirname, 'routes'),
+  path.join(__dirname, 'protected')
+]);
+
 app.set('view engine', 'pug');
 
 // Protected folder
-for (directory of getDirectories('protected')) {
+for (const directory of getDirectories('protected')) {
   app.use(`/${directory.name}`, [
     basicAuth,
     express.static(path.join(__dirname, `protected/${directory.name}`))
@@ -25,11 +30,31 @@ for (directory of getDirectories('protected')) {
 }
 
 // Routes folder
-for (directory of getDirectories('routes')) {
+for (const directory of getDirectories('routes')) {
   app.use(
     `/${directory.name}`,
     express.static(path.join(__dirname, `routes/${directory.name}`))
   );
+}
+
+// Using pug
+for (const directory of [
+  ...getDirectories('routes'),
+  ...getDirectories('protected')
+]) {
+  app.get(`/${directory.name}`, (req, res, next) => {
+    res.render(`${directory.name}/index`);
+  });
+}
+
+// Using markdown
+for (const directory of [
+  ...getDirectories('routes'),
+  ...getDirectories('protected')
+]) {
+  app.get(`/${directory.name}`, (req, res, next) => {
+    res.render(`${directory.name}/index`);
+  });
 }
 
 // Public folder
