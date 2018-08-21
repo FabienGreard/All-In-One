@@ -6,7 +6,7 @@ const app = require('express')(),
 
 // Generate robots.txt disallow protected routes
 seo.genRobots('protected', 'robots.txt');
-seo.genRobots('routes', 'sitemap.xml');
+seo.genSitemap('routes', 'sitemap.xml');
 
 // View engine setup
 app.set('views', [
