@@ -1,4 +1,3 @@
-if (err) throw err;
 const getDirectories = require('../../utils/getDirectories'),
   request = require('supertest'),
   app = require('../../server.js');
