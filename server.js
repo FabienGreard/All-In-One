@@ -2,7 +2,14 @@ const app = require('express')(),
   path = require('path'),
   config = require('./config/main'),
   morgan = require('morgan'),
-  { getDirectories, seo, errorHandler, servFile, winston } = require('./utils');
+  {
+    getDirectories,
+    getSocials,
+    seo,
+    errorHandler,
+    servFile,
+    winston
+  } = require('./utils');
 
 // Generate robots.txt disallow protected routes
 seo.genRobots('protected', 'robots.txt');
@@ -41,6 +48,7 @@ app.get('/', (req, res, next) => {
       ...Object.values(getDirectories('protected').values),
       ...Object.values(getDirectories('routes').values)
     ],
+    socials: getSocials(config.socials),
     googleAnalyticsId: config.googleAnalyticsId
   });
 });
