@@ -9,15 +9,15 @@ block routes
     each link in routes
       if link.name
         li 
-          a(href=`${link.url}` title=`${link.name}`)=link.name
+          a.link-route(href=`${link.url}` title=`${link.name}`)=link.name
         
 block socials  
   ul
     each link in socials
       if link.name
         li 
-          a(href=`${link.url}` title=`${link.name}`)
-            img(src=`/images/brands/${link.name}.svg` alt=`${link.name}`)
+          a.link-social(href=`${link.url}` title=`${link.name}`)
+            img.img-social(src=`/images/brands/${link.name}.svg` alt=`${link.name}`)
 
 
           
