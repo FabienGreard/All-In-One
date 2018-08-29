@@ -5,17 +5,17 @@ block content
   p=`Grettings from All-in-one !`
     
 block routes  
-  ul
+  ul.route-link-container
     each link in routes
       if link.name
-        li 
+        li.route-link
           a.link-route(href=`${link.url}` title=`${link.name}`)=link.name
-        
+
 block socials  
-  ul
+  ul.social-container
     each link in socials
       if link.name
-        li 
+        li.social-link
           a.link-social(href=`${link.url}` title=`${link.name}`)
             img.img-social(src=`/images/brands/${link.name}.svg` alt=`${link.name}`)
 
