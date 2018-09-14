@@ -20,7 +20,7 @@ const js = async path => {
 
 const css = async path => {
   const data = fs.readFileSync(path, 'utf-8');
-  const { styles } = new cleanCss({ compatibility: '*' }).minify(browsers[0]);
+  const { styles } = new cleanCss({ compatibility: '*' }).minify(data);
   await writeFile(path, styles);
 };
 
