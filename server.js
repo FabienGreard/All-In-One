@@ -9,11 +9,17 @@ const app = require('express')(),
     errorHandler,
     servFile,
     forceHttps,
-    winston
+    winston,
+    build
   } = require('./utils');
 
-//force https redirect
+// Minify + prefixer css
+build.css(path.join(__dirname, 'public/style.css'));
 
+// Minify js
+build.js(path.join(__dirname, 'public/app.js'));
+
+// Force https redirect
 app.all('*', forceHttps);
 
 // Generate robots.txt disallow protected routes
@@ -28,7 +34,7 @@ app.set('views', [
 ]);
 app.set('view engine', 'pug');
 
-//logger
+// Logger
 app.use(morgan(config.log, { stream: winston.stream }));
 
 // Private folder

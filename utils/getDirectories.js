@@ -3,6 +3,7 @@ const fs = require('fs'),
 
 const isDirectory = source => fs.lstatSync(source).isDirectory();
 const isExist = source => fs.existsSync(source);
+
 module.exports = getDirectories = source => {
   const directories = isExist(source)
     ? fs

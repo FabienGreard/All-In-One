@@ -7,7 +7,8 @@ const getDirectories = require('./getDirectories'),
   servFile = require('./servFile'),
   checkFileExt = require('./checkFileExt'),
   forceHttps = require('./forceHttps'),
-  winston = require('./winston');
+  winston = require('./winston'),
+  build = require('./build');
 
 module.exports = {
   getDirectories,
@@ -19,5 +20,6 @@ module.exports = {
   checkFileExt,
   servFile,
   forceHttps,
-  winston
+  winston,
+  build
 };
