@@ -14,15 +14,11 @@
     "coverage": "cross-env NODE_ENV=development jest --coverage --watchAll --config ./config/jest.config.js"
   },
   "lint-staged": {
-    "**/*.{js,json,css,md}": [
-      "prettier --write --single-quote",
-      "git add"
-    ]
+    "**/*.{js,json,css,md}": ["prettier --write --single-quote", "git add"]
   },
   "author": "FabienGreard",
   "license": "MIT",
   "dependencies": {
-    "autoprefixer": "^9.1.5",
     "clean-css": "^4.2.1",
     "cross-env": "^5.1.5",
     "express": "^4.16.3",
