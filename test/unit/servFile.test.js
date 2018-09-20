@@ -43,9 +43,11 @@ const deleteDir = path => {
 
 describe('servfile', () => {
   let app;
+
   beforeEach(() => {
     app = express();
   });
+
   beforeAll(async () => {
     if (!fs.existsSync(`./routes`)) await writeDir(`./routes`);
     for (const path of [
@@ -57,6 +59,7 @@ describe('servfile', () => {
       await writeFile(`./routes/${path.dir}/${path.file}`, 'generate-auto');
     }
   });
+
   afterAll(async () => {
     for (const path of [
       { dir: 'generateHTML', file: 'index.html' },
@@ -67,6 +70,7 @@ describe('servfile', () => {
       await deleteDir(`./routes/${path.dir}`);
     }
   });
+
   it('Should serv a static folder', done => {
     servFile(app, [{ name: 'public' }]);
     request(app)
@@ -77,6 +81,7 @@ describe('servfile', () => {
         done();
       });
   });
+
   it('Should serv a private folder', done => {
     servFile(app, [{ name: 'generateHTML', url: '/generateHTML' }], {
       baseDir: '../routes/',
@@ -98,6 +103,7 @@ describe('servfile', () => {
         done();
       });
   });
+
   it('Should serv a public folder', done => {
     servFile(app, [{ name: 'generateHTML', url: '/generateHTML' }], {
       baseDir: '../routes/',
@@ -111,6 +117,7 @@ describe('servfile', () => {
         done();
       });
   });
+
   it('Should serv a markdown file', done => {
     servFile(app, [{ name: 'generateMD', url: '/generateMD' }], {
       baseDir: '../routes/',
@@ -124,6 +131,7 @@ describe('servfile', () => {
         done();
       });
   });
+
   it('Should serv a pug file', done => {
     app.set('views', [path.join(__dirname, '../../routes')]);
     app.set('view engine', 'pug');

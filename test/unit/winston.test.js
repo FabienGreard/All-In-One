@@ -9,6 +9,7 @@ describe('Winston', () => {
     }
     done();
   });
+
   it('Should log error', done => {
     try {
       winston.error('This is an error');
@@ -17,6 +18,7 @@ describe('Winston', () => {
     }
     done();
   });
+
   it('Should stream a message', done => {
     try {
       winston.stream.write('this is a stream message');

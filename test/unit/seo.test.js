@@ -6,11 +6,13 @@ describe('SEO', () => {
       'robots.txt has been saved'
     );
   });
+
   it('Should create a sitemap.xml', async () => {
     expect(await seo.genSitemap('routes', 'sitemap.xml')).toEqual(
       'sitemap.xml has been saved'
     );
   });
+
   it('Should return an error', async () => {
     try {
       await seo.genSitemap('routes', './nomatch/nomatch.txt');

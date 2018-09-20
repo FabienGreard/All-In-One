@@ -7,6 +7,7 @@ describe('checkFileExt', () => {
       true
     );
   });
+
   it('Should return false', () => {
     expect(checkFileExt(path.join(__dirname, 'views/not-match.pug'))).toBe(
       false
